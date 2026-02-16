@@ -1,0 +1,516 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+    font-family: 'jujutsufont';
+    src: url('./fonts/jujutsu-kaisen.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'jujutsufont', sans-serif;
+    background-color: yellow;
+    /* height: 300vh;*/      /* Makes page scrollable */
+  overflow-x: hidden;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+#header {
+  /*border: 1px solid green;*/
+    width: 100%; /*100vw;*/
+    height: 15vh;
+    background: rgba(0, 0, 0, 0.233);
+    backdrop-filter: blur(10px);
+    
+    position: fixed;
+    top: 0; 
+    left: 0;
+    transition: transform 0.4s ease, background 0.3s ease;
+  
+    
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+      
+}
+#header.nav-hidden {
+  transform: translateY(-100%);
+}
+
+
+.logo {
+    
+    width: 50vw;
+}
+.logo>img {
+  
+  
+  padding: 5px 3px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 20px;
+  padding-top: 0px;
+}
+nav {
+    font-weight: 500;
+}
+nav li {
+  border: none;
+    padding: 3px; 
+  }  
+  nav li:hover {
+    transform: scale(1.2);
+  }
+nav>ul {
+  width: 35vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+li {
+  list-style: none;
+}
+a {
+    text-decoration: none;
+    color:rgb(196, 196, 196);
+}
+
+ .choso-img {
+  width: 150px;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#pricing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+.product-card {
+    background: rgba(15, 15, 15, 0.9); /* Dark charcoal */
+    border: 1px solid #333;
+    border-radius: 4px; /* Sharp corners feel more "weapon-like" */
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* The "Cursed Energy" Hover Effect */
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: #4facee; /* Cursed blue */
+    box-shadow: 0 0 20px rgba(79, 172, 238, 0.4);
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    /*right: -30px;*/
+    background: #ff0000;
+    color: white;
+    padding: 5px 40px;
+    /*transform: rotate(45deg);*/
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit:contain;
+    /*filter: grayscale(40%);*/
+    transition: 0.3s;
+}
+
+.product-card:hover img {
+    filter: grayscale(0%);
+}
+
+.product-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.price {
+    color: yellow;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.btn-select {
+    width: 100%;
+    background: transparent;
+    color: white;
+    border: 1px solid yellow;
+    padding: 12px;
+    cursor: pointer;
+    font-family: 'jujutsufont', sans-serif;
+    transition: 0.3s;
+}
+
+.btn-select:hover {
+    background: yellow;
+    color: black;
+}
+/* ===== SPLIT VIDEO BACKGROUND ===== */
+
+.bg-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  z-index: -10;
+}
+
+/* Both Videos */
+/*.left-bg,
+.right-bg {
+  width: 50%;
+  height: 120%;  */            /* Prevent white gaps */
+  /*object-fit: cover;
+  will-change: transform;
+}*/
+
+/* ===== SPLIT VIDEO BACKGROUND (50% VIDEO WIDTH CROPPED) ===== */
+
+.bg-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  z-index: -10;
+}
+
+/* Each half of the screen */
+.left-side,
+.right-side {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow: hidden; /* Important */
+}
+
+/* Videos are double width */
+.left-bg,
+.right-bg {
+  position: absolute;
+  top: 0;
+  width: 200%;
+  height: 120%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+/* Show left half of first video */
+.left-bg {
+  left: 0;
+}
+
+/* Show right half of second video */
+.right-bg {
+  right: 0;
+}
+
+
+/* Optional subtle dark overlay */
+.bg-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /*background: rgba(0,0,0,0.35);*/
+  pointer-events: none;
+}
+
+/* Optional center divider line (anime slash effect 🔥) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100vh;
+  background: white;
+  box-shadow: 0 0 15px white, 0 0 30px #4facee;
+  z-index: 5;
+}
+
+/* Content on top */
+.content {
+  position: relative;
+  z-index: 10;
+  padding: 100px 100px 0 100px;
+  text-align: center;
+  color: yellow;
+}
+
+#features {
+  margin-top: 30px;
+  /*border: 1px solid white;*/
+}
+/* #features .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 20vw; } */
+
+
+.desc p {
+  /*border : 1px solid red;*/
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-top: 2px;
+
+}
+.icon {
+  color:#ff0000;
+  padding: 8px;
+  height: 70px;
+  width: 25vw;
+  /*border: 1px solid yellow;*/
+  display: flex;
+  align-items: center; 
+  gap: 15px;           /* Space between icon and text */
+}
+i {
+  font-size: 32px;
+  /*margin-right: 5px;*/
+}
+#contact-us {
+  position: relative;
+  /*height: 100vh; Full screen section */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  padding-left: 8px;
+  text-align: center;
+  color: rgb(196, 196, 196);
+  min-height: 100vh;
+  padding-bottom: 0;
+}
+
+/* Video Background */
+#contact-us .bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Dark overlay for readability */
+#contact-us::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* Content above video */
+.contact-content {
+  text-align: left;
+  height: 100%;
+  padding-left: 10px;
+  
+  
+  
+  /*border: 1px solid red;*/
+  
+  position: relative;
+  z-index: 1;
+  width: 50%
+}
+.cont-spin {
+  /*border: 1px solid green;*/
+  align-items: center;
+  display: flex;
+}
+
+/*text-shadows*/
+h1, h2, h3, p, a  {
+  text-shadow:
+   0 0 5px rgba(255, 0, 0, 0.7),
+    0 0 15px rgba(255, 0, 0, 0.6),
+    0 0 30px rgba(0, 0, 0, 0.8);
+}
+.footer {
+  background: rgba(0, 0, 0, 0.233);
+    backdrop-filter: blur(10px);
+    color: rgb(8, 8, 8);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: 10px;
+    
+} 
+
+
+/* ============================= */
+/* 📱 MOBILE RESPONSIVE STYLES  */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* Remove center divider line */
+  body::before {
+    display: none;
+  }
+
+  /* Stack split videos vertically */
+  .left-side,
+  .right-side {
+    width: 100%;
+    height: 100%;
+  }
+
+  .left-bg,
+  .right-bg {
+    width: 100%;
+  }
+
+  /* Reduce content padding */
+  .content {
+    padding: 120px 20px 60px 20px;
+  }
+
+  /* Header layout */
+  #header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  nav > ul {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav li:hover {
+    transform: none;
+  }
+
+  /* Hero section */
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #email,
+  #submit {
+    width: 100%;
+  }
+
+  /* Features section */
+  .icon {
+    width: 100%;
+  }
+
+  .desc p {
+    font-size: 16px;
+  }
+
+  /* Pricing grid */
+  #pricing {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .product-card {
+    margin-bottom: 10px;
+  }
+
+  .product-badge {
+    font-size: 14px;
+    padding: 5px 15px;
+  }
+
+  /* Contact section */
+  #contact-us {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .contact-content {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .cont-spin {
+    flex-direction: column;
+  }
+
+  .choso-img {
+    width: 100px;
+  }
+
+}
